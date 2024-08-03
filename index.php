@@ -1,10 +1,10 @@
 <?php
+session_start();
 include 'db.php';
 
-// Busca todas as publicações
 $stmt = $pdo->prepare("SELECT * FROM posts ORDER BY created_at DESC");
 $stmt->execute();
-$posts = $stmt->fetchAll();
+$posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +25,7 @@ $posts = $stmt->fetchAll();
                 <p><?php echo nl2br(htmlspecialchars($post['content'])); ?></p>
                 <?php if ($post['image']): ?>
                     <figure>
-                        <img src="uploads/<?php echo htmlspecialchars($post['image']); ?>" alt="Imagem da publicação">
+                        <img src="uploads/<?php echo htmlspecialchars($post['image']); ?>" alt="<?php echo htmlspecialchars($post['image_description']); ?>">
                         <figcaption><?php echo htmlspecialchars($post['image_description']); ?></figcaption>
                     </figure>
                 <?php endif; ?>
