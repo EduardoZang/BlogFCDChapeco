@@ -26,7 +26,6 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <?php if ($post['image']): ?>
                     <figure>
                         <img src="uploads/<?php echo htmlspecialchars($post['image']); ?>" alt="<?php echo htmlspecialchars($post['image_description']); ?>">
-                        <figcaption><?php echo htmlspecialchars($post['image_description']); ?></figcaption>
                     </figure>
                 <?php endif; ?>
                 <hr>
