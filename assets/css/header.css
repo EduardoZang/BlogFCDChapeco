@@ -1,6 +1,7 @@
 header {
     background-color: #3E94DB;
     padding: 10px 0;
+    position: inherit;
 }
 
 .navbar-nav {
@@ -43,13 +44,16 @@ header {
     border-radius: 50%;
     object-fit: cover;
 }
+
 .social-icons {
     display: flex;
     align-items: center;
 }
+
 .social-icons a {
     margin: 0 10px;
 }
+
 .nav-item {
     display: flex;
     align-items: center;
