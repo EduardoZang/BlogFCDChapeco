@@ -31,25 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <header>
-        <h1>Blog de Notícias</h1>
-        <nav>
-            <ul>
-                <li><a href="index.php">Início</a></li>
-                <li><a href="donations.php">Doações</a></li>
-                <li><a href="about_us.php">Quem Somos</a></li>
-                <?php if (isset($_SESSION['user_id'])): ?>
-                    <li><a href="manage_account.php">Minha Conta</a></li>
-                    <li><a href="manage_posts.php">Gerenciar Publicações</a></li>
-                    <li><a href="logout.php">Sair</a></li>
-                <?php else: ?>
-                    <li><a href="login.php">Login</a></li>
-                    <li><a href="register.php">Registrar</a></li>
-                <?php endif; ?>
-            </ul>
-        </nav>
-    </header>
-    
+    <?php include 'templates/header.php'; ?>
     <h2>Login</h2>
     <?php if (isset($error)): ?>
         <p><?php echo $error; ?></p>
@@ -63,5 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <br>
         <input type="submit" value="Login">
     </form>
+
+    <?php include 'templates/footer.php'; ?>
 </body>
 </html>

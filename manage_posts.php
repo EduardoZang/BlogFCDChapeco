@@ -67,25 +67,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <header>
-        <h1>Blog de Notícias</h1>
-        <nav>
-            <ul>
-                <li><a href="index.php">Início</a></li>
-                <li><a href="donations.php">Doações</a></li>
-                <li><a href="about_us.php">Quem Somos</a></li>
-                <?php if (isset($_SESSION['user_id'])): ?>
-                    <li><a href="manage_account.php">Minha Conta</a></li>
-                    <li><a href="manage_posts.php">Gerenciar Publicações</a></li>
-                    <li><a href="logout.php">Sair</a></li>
-                <?php else: ?>
-                    <li><a href="login.php">Login</a></li>
-                    <li><a href="register.php">Registrar</a></li>
-                <?php endif; ?>
-            </ul>
-        </nav>
-    </header>
-
+    <?php include 'templates/header.php'; ?>
     <h1>Gerenciar Publicações</h1>
     <h2>Adicionar Nova Publicação</h2>
     <form action="manage_posts.php" method="POST" enctype="multipart/form-data">
@@ -128,5 +110,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php else: ?>
         <p>Nenhuma publicação encontrada.</p>
     <?php endif; ?>
+
+    <?php include 'templates/footer.php'; ?>
 </body>
 </html>

@@ -12,6 +12,8 @@
     </style>
 </head>
 <body>
+    <?php include 'templates/header.php'; ?>
+
     <h1>Quem Somos</h1>
     <p>Telefone: (00) 1234-5678</p>
     <div id="map"></div>
@@ -25,5 +27,7 @@
             .bindPopup('Nosso endereço')
             .openPopup();
     </script>
+    
+    <?php include 'templates/footer.php'; ?>
 </body>
 </html>

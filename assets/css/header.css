@@ -1,0 +1,38 @@
+header {
+    background-color: #3E94DB;
+    padding: 10px 0;
+}
+
+.navbar-nav {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.nav-link {
+    color: #EAFF00 !important;
+    margin: 0 15px;
+    font-size: 16px;
+}
+
+.nav-link:hover {
+    background-color: #EAFF00;
+    color: #121074 !important;
+    border-radius: 5px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.social-icons a {
+    color: #EAFF00;
+    margin-left: 15px;
+    font-size: 20px;
+}
+
+.logo {
+    width: 64px;
+    height: 50px;
+}

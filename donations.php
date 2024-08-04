@@ -6,8 +6,12 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <?php include 'templates/header.php'; ?>
+    
     <h1>Doações</h1>
     <p>Para apoiar nosso trabalho, faça uma doação através do QR Code abaixo:</p>
     <img src="assets/images/qrcode_pix.png" alt="QR Code do Pix">
+
+    <?php include 'templates/footer.php'; ?>
 </body>
 </html>

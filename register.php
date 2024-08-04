@@ -25,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <?php include 'templates/header.php'; ?>
     <h1>Cadastro de Usuário</h1>
     <?php if (isset($success)): ?>
         <p><?php echo $success; ?></p>
@@ -38,5 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input type="checkbox" name="is_admin">
         <button type="submit">Cadastrar</button>
     </form>
+
+    <?php include 'templates/footer.php'; ?>
 </body>
 </html>
