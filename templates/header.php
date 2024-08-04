@@ -25,9 +25,6 @@
                             <a class="nav-link" href="about_us.php">Quem Somos</a>
                         </li>
                         <?php if (isset($_SESSION['user_id'])): ?>
-                            <li class="nav-item">
-                                <a class="nav-link" href="manage_account.php">Minha Conta</a>
-                            </li>
                             <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1): ?>
                                 <li class="nav-item">
                                     <a class="nav-link" href="manage_posts.php">Gerenciar Publicações</a>
@@ -50,7 +47,19 @@
             <div class="social-icons">
                 <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="manage_account.php"><i class="fas fa-user"></i></a>
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="manage_account.php">
+                            <?php if (isset($_SESSION['profile_image']) && $_SESSION['profile_image'] !== 'perfilPadrao.png'): ?>
+                                <img src="uploads/<?php echo htmlspecialchars($_SESSION['profile_image']); ?>" alt="Foto de Perfil" class="profile-icon">
+                            <?php else: ?>
+                                <img src="uploads/perfilPadrao.png" alt="Foto de Perfil Padrão" class="profile-icon">
+                            <?php endif; ?>
+                        </a>
+                    </li>
+                <?php else: ?>
+                    <a href="login.php"><i class="fas fa-user"></i></a>
+                <?php endif; ?>
             </div>
         </div>
     </div>
