@@ -22,6 +22,9 @@
                             <a class="nav-link" href="donations.php">Doações</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="adress.php">Como Chegar</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="about_us.php">Quem Somos</a>
                         </li>
                         <?php if (isset($_SESSION['user_id'])): ?>

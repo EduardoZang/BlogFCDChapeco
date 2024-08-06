@@ -1,0 +1,105 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.intro-section {
+    padding: 30px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.intro-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.text-container {
+    max-width: 60%;
+    text-align: left;
+}
+
+.intro-section h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.intro-section p {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.image-container {
+    max-width: 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.image-container img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+#map {
+    height: 300px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.contact-link {
+    color: #000;
+    text-decoration: none;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.contact-link i {
+    margin-right: 8px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #fff;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 2px solid #000;
+    text-decoration: none;
+    font-size: 18px;
+    margin-top: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn i {
+    margin-right: 8px;
+}
+
+.btn:hover {
+    background-color: #f0f0f0;
+}
