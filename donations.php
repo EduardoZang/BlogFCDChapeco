@@ -3,14 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Doações</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/donations.css">
 </head>
 <body>
     <?php include 'templates/header.php'; ?>
     
-    <h1>Doações</h1>
-    <p>Para apoiar nosso trabalho, faça uma doação através do QR Code abaixo:</p>
-    <img src="assets/images/qrcode_pix.png" alt="QR Code do Pix">
+    <div class="content-wrapper">
+        <div class="donation-container">
+            <h1>Doações</h1>
+            <p>Para apoiar nosso trabalho, faça uma doação através do QR Code abaixo:</p>
+            <div class="qrcode-container">
+                <img src="assets/images/qrcodeexample.png" alt="QR Code do Pix">
+            </div>
+        </div>
+    </div>
 
     <?php include 'templates/footer.php'; ?>
 </body>
