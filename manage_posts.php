@@ -64,7 +64,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <title>Gerenciar Publicações</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/manage_posts.css">
 </head>
 <body>
     <?php include 'templates/header.php'; ?>

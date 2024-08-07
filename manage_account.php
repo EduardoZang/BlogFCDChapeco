@@ -55,35 +55,44 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Gerenciar Conta</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/manage_account.css">
 </head>
 <body>
     <?php include 'templates/header.php'; ?> 
-    <h1>Gerenciar Conta</h1>
-    <?php if (isset($success)): ?>
-        <p><?php echo $success; ?></p>
-    <?php endif; ?>
-    <form action="manage_account.php" method="POST" enctype="multipart/form-data">
-        <label for="username">Usuário:</label>
-        <input type="text" name="username" value="<?php echo htmlspecialchars($user['username']); ?>" required>
-        <label for="password">Senha (deixe em branco para manter a atual):</label>
-        <input type="password" name="password">
-        <label for="email">Email:</label>
-        <input type="email" name="email" value="<?php echo htmlspecialchars($user['email']); ?>" required>
-        <label for="phone">Telefone:</label>
-        <input type="text" name="phone" value="<?php echo htmlspecialchars($user['phone']); ?>" required>
-        <label for="birthdate">Data de Nascimento:</label>
-        <input type="date" name="birthdate" value="<?php echo htmlspecialchars($user['birthdate']); ?>" required>
-        <label for="profile_image">Foto de Perfil:</label>
-        <?php if ($user['profile_image'] !== 'perfilPadrao.png'): ?>
-            <img src="uploads/<?php echo htmlspecialchars($user['profile_image']); ?>" alt="Foto de Perfil" width="100">
-        <?php else: ?>
-            <img src="uploads/perfilPadrao.png" alt="Foto de Perfil Padrão" width="100">
-        <?php endif; ?>
-        <input type="file" name="profile_image">
-        <button type="submit">Atualizar</button>
-    </form>
-
+    <div class="content-wrapper">
+        <div class="about-container">
+            <h1>Gerenciar Conta</h1>
+            <?php if (isset($success)): ?>
+                <p><?php echo $success; ?></p>
+            <?php endif; ?>
+            <form action="manage_account.php" method="POST" enctype="multipart/form-data">
+                <label for="username">Usuário:</label>
+                <input type="text" name="username" value="<?php echo htmlspecialchars($user['username']); ?>" required>
+                
+                <label for="password">Senha (deixe em branco para manter a atual):</label>
+                <input type="password" name="password">
+                
+                <label for="email">Email:</label>
+                <input type="email" name="email" value="<?php echo htmlspecialchars($user['email']); ?>" required>
+                
+                <label for="phone">Telefone:</label>
+                <input type="text" name="phone" value="<?php echo htmlspecialchars($user['phone']); ?>" required>
+                
+                <label for="birthdate">Data de Nascimento:</label>
+                <input type="date" name="birthdate" value="<?php echo htmlspecialchars($user['birthdate']); ?>" required>
+                
+                <label for="profile_image">Foto de Perfil:</label>
+                <?php if ($user['profile_image'] !== 'perfilPadrao.png'): ?>
+                    <img src="uploads/<?php echo htmlspecialchars($user['profile_image']); ?>" alt="Foto de Perfil" width="100">
+                <?php else: ?>
+                    <img src="uploads/perfilPadrao.png" alt="Foto de Perfil Padrão" width="100">
+                <?php endif; ?>
+                <input type="file" name="profile_image">
+                
+                <button type="submit">Atualizar</button>
+            </form>
+        </div>
+    </div>
     <?php include 'templates/footer.php'; ?>
 </body>
 </html>
