@@ -42,7 +42,46 @@ p {
     color: #000;
 }
 
+.profile-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    text-align: left;
+}
+
+.profile-image {
+    flex: 0 0 150px;
+    text-align: center;
+}
+
+.profile-image img {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #fff;
+    color: #000;
+    border-radius: 5px;
+    border: 2px solid #000;
+    font-size: 18px;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 10px;
+}
+
+.custom-file-upload:hover {
+    background-color: #f0f0f0;
+}
+
+.profile-image input[type="file"] {
+    display: none;
+}
+
 form {
+    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -78,14 +117,9 @@ button {
     font-size: 18px;
     transition: background-color 0.3s, color 0.3s;
     cursor: pointer;
+    align-self: center;
 }
 
 button:hover {
     background-color: #f0f0f0;
-}
-
-img {
-    margin-top: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
