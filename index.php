@@ -12,7 +12,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <title>Blog de Notícias</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/index.css">
 </head>
 <body>
     <?php include 'templates/header.php'; ?>
