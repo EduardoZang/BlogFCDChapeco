@@ -16,9 +16,11 @@ if (isset($_POST['add'])) {
     $image_description = $_POST['image_description'];
     
     // Upload da imagem
-    $target_dir = "uploads/";
-    $target_file = $target_dir . basename($_FILES["image"]["name"]);
-    move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+    if ($image) {
+        $target_dir = "uploads/";
+        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+    }
 
     $stmt = $pdo->prepare("INSERT INTO posts (title, content, image, image_description) VALUES (?, ?, ?, ?)");
     $stmt->execute([$title, $content, $image, $image_description]);
@@ -54,7 +56,7 @@ if (isset($_POST['delete'])) {
 }
 
 // Busca todas as publicações
-$stmt = $pdo->prepare("SELECT * FROM posts ORDER BY created_at DESC");
+$stmt = $pdo->prepare("SELECT id, title, content, image, image_description, DATE_FORMAT(created_at, '%d/%m/%Y %H:%i') as created_at FROM posts ORDER BY created_at DESC");
 $stmt->execute();
 $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -65,52 +67,98 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <title>Gerenciar Publicações</title>
     <link rel="stylesheet" href="assets/css/manage_posts.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <body>
     <?php include 'templates/header.php'; ?>
     <h1>Gerenciar Publicações</h1>
     <h2>Adicionar Nova Publicação</h2>
-    <form action="manage_posts.php" method="POST" enctype="multipart/form-data">
+    <form action="manage_posts.php" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
         <label for="title">Título:</label>
         <input type="text" name="title" required>
         <label for="content">Conteúdo:</label>
         <textarea name="content" required></textarea>
         <label for="image">Imagem:</label>
-        <input type="file" name="image">
+        <input type="file" name="image" id="image" onchange="previewImage(event)">
+        <div id="imagePreviewContainer">
+            <img id="imagePreview" style="display:none;" />
+        </div>
         <label for="image_description">Descrição da Imagem:</label>
-        <textarea name="image_description"></textarea>
+        <textarea name="image_description" id="image_description" readonly></textarea>
         <button type="submit" name="add">Adicionar</button>
     </form>
 
-    <h2>Publicações Existentes</h2>
     <?php if ($posts): ?>
-        <?php foreach ($posts as $post): ?>
-            <div class="post">
-                <form action="manage_posts.php" method="POST" enctype="multipart/form-data">
-                    <input type="hidden" name="post_id" value="<?php echo $post['id']; ?>">
-                    <label for="title">Título:</label>
-                    <input type="text" name="title" value="<?php echo htmlspecialchars($post['title']); ?>" required>
-                    <label for="content">Conteúdo:</label>
-                    <textarea name="content" required><?php echo htmlspecialchars($post['content']); ?></textarea>
-                    <label for="image">Imagem:</label>
-                    <input type="file" name="image">
-                    <label for="image_description">Descrição da Imagem:</label>
-                    <textarea name="image_description"><?php echo htmlspecialchars($post['image_description']); ?></textarea>
-                    <button type="submit" name="edit">Editar</button>
-                    <button type="submit" name="delete">Excluir</button>
-                </form>
-                <?php if ($post['image']): ?>
-                    <figure>
-                        <img src="uploads/<?php echo htmlspecialchars($post['image']); ?>" alt="<?php echo htmlspecialchars($post['image_description']); ?>">
-                        <figcaption><?php echo htmlspecialchars($post['image_description']); ?></figcaption>
-                    </figure>
-                <?php endif; ?>
-            </div>
-        <?php endforeach; ?>
-    <?php else: ?>
-        <p>Nenhuma publicação encontrada.</p>
+        <h2>Publicações Existentes</h2>
+        <div class="posts-container">
+            <?php foreach ($posts as $post): ?>
+                <div class="post">
+                    <form action="manage_posts.php" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+                        <input type="hidden" name="post_id" value="<?php echo $post['id']; ?>">
+                        <label for="title">Título:</label>
+                        <input type="text" name="title" value="<?php echo htmlspecialchars($post['title']); ?>" required>
+                        <label for="content">Conteúdo:</label>
+                        <textarea name="content" required><?php echo htmlspecialchars($post['content']); ?></textarea>
+                        <label for="image">Imagem:</label>
+                        <input type="file" name="image" onchange="previewExistingImage(event, <?php echo $post['id']; ?>)">
+                        <div id="imagePreviewContainer_<?php echo $post['id']; ?>">
+                            <?php if ($post['image']): ?>
+                                <img id="imagePreview_<?php echo $post['id']; ?>" src="uploads/<?php echo htmlspecialchars($post['image']); ?>" alt="<?php echo htmlspecialchars($post['image_description']); ?>" />
+                            <?php endif; ?>
+                        </div>
+                        <label for="image_description">Descrição da Imagem:</label>
+                        <textarea name="image_description" id="image_description_<?php echo $post['id']; ?>" <?php echo $post['image'] ? '' : 'readonly'; ?>><?php echo htmlspecialchars($post['image_description']); ?></textarea>
+                        <label for="created_at">Data e Hora da Publicação:</label>
+                        <input type="text" name="created_at" value="<?php echo htmlspecialchars($post['created_at']); ?>" readonly>
+                        <button type="submit" name="edit">Editar</button>
+                        <button type="submit" name="delete">Excluir</button>
+                    </form>
+                </div>
+            <?php endforeach; ?>
+        </div>
     <?php endif; ?>
 
     <?php include 'templates/footer.php'; ?>
+
+    <script>
+        function previewImage(event) {
+            var input = event.target;
+            var reader = new FileReader();
+            reader.onload = function() {
+                var dataURL = reader.result;
+                var imagePreview = document.getElementById('imagePreview');
+                var imageDescription = document.getElementById('image_description');
+                imagePreview.src = dataURL;
+                imagePreview.style.display = 'block';
+                imageDescription.removeAttribute('readonly');
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+
+        function previewExistingImage(event, postId) {
+            var input = event.target;
+            var reader = new FileReader();
+            reader.onload = function() {
+                var dataURL = reader.result;
+                var imagePreview = document.getElementById('imagePreview_' + postId);
+                var imageDescription = document.getElementById('image_description_' + postId);
+                imagePreview.src = dataURL;
+                imagePreview.style.display = 'block';
+                imageDescription.removeAttribute('readonly');
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+
+        function validateForm() {
+            var imageInput = document.getElementById('image');
+            var imageDescription = document.getElementById('image_description').value;
+
+            if (imageInput.files.length > 0 && imageDescription.trim() === '') {
+                alert('A descrição da imagem é obrigatória quando uma imagem é selecionada.');
+                return false;
+            }
+            return true;
+        }
+    </script>
 </body>
 </html>

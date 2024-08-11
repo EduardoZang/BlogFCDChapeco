@@ -12,7 +12,6 @@ body {
 
 h1, h2 {
     font-size: 24px;
-    color: #000;
     text-align: center;
     margin-top: 20px;
 }
@@ -22,12 +21,33 @@ form {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    max-width: 800px;
-    margin: 20px auto;
+    width: 100%;
+    max-width: 400px;
+    margin: 10px auto;
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.posts-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px auto;
+}
+
+.post {
+    flex: 1 1 calc(33.333% - 20px); /* Largura de aproximadamente 1/3 do container */
+    margin: 10px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 label {
@@ -40,6 +60,7 @@ input[type="text"], input[type="file"], textarea {
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    width: 100%;
 }
 
 button {
@@ -52,38 +73,49 @@ button {
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
     margin-top: 10px;
+    width: 100%;
 }
 
 button:hover {
-    background-color: #f0f0f0;
+    background-color: #000;
+    color: #fff;
 }
 
-.post {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    max-width: 800px;
-    margin: 20px auto;
+#imagePreviewContainer, .imagePreviewContainer {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
 }
 
-figure {
-    margin: 20px 0;
+#imagePreview, .imagePreview {
+    width: 100%;
+    max-width: 300px; /* Tamanho máximo da imagem */
+    height: auto;
+    object-fit: cover;
+    display: block;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+input[name="created_at"] {
+    width: 100%;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #f9f9f9;
     text-align: center;
 }
 
-figure img {
-    max-width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+@media (max-width: 768px) {
+    .post {
+        flex: 1 1 calc(50% - 20px); /* Ajuste para telas menores */
+    }
 }
 
-figcaption {
-    font-size: 16px;
-    color: #666;
-    margin-top: 10px;
+@media (max-width: 480px) {
+    .post {
+        flex: 1 1 100%; /* Ajuste para telas muito pequenas */
+    }
 }
