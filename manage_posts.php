@@ -81,7 +81,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <label for="image">Imagem:</label>
         <input type="file" name="image" id="image" onchange="previewImage(event)">
         <div id="imagePreviewContainer">
-            <img id="imagePreview" style="display:none;" />
+            <img id="imagePreview" class="standard-image" style="display:none;" />
         </div>
         <label for="image_description">Descrição da Imagem:</label>
         <textarea name="image_description" id="image_description" readonly></textarea>
@@ -103,7 +103,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <input type="file" name="image" onchange="previewExistingImage(event, <?php echo $post['id']; ?>)">
                         <div id="imagePreviewContainer_<?php echo $post['id']; ?>">
                             <?php if ($post['image']): ?>
-                                <img id="imagePreview_<?php echo $post['id']; ?>" src="uploads/<?php echo htmlspecialchars($post['image']); ?>" alt="<?php echo htmlspecialchars($post['image_description']); ?>" />
+                                <img id="imagePreview_<?php echo $post['id']; ?>" class="standard-image" src="uploads/<?php echo htmlspecialchars($post['image']); ?>" alt="<?php echo htmlspecialchars($post['image_description']); ?>" />
                             <?php endif; ?>
                         </div>
                         <label for="image_description">Descrição da Imagem:</label>
@@ -111,54 +111,66 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <label for="created_at">Data e Hora da Publicação:</label>
                         <input type="text" name="created_at" value="<?php echo htmlspecialchars($post['created_at']); ?>" readonly>
                         <button type="submit" name="edit">Editar</button>
-                        <button type="submit" name="delete">Excluir</button>
+                        <button type="submit" name="delete" onclick="return confirm('Tem certeza que deseja excluir esta publicação?')">Excluir</button>
                     </form>
                 </div>
             <?php endforeach; ?>
         </div>
     <?php endif; ?>
-
     <?php include 'templates/footer.php'; ?>
-
     <script>
         function previewImage(event) {
-            var input = event.target;
             var reader = new FileReader();
-            reader.onload = function() {
-                var dataURL = reader.result;
-                var imagePreview = document.getElementById('imagePreview');
-                var imageDescription = document.getElementById('image_description');
-                imagePreview.src = dataURL;
-                imagePreview.style.display = 'block';
-                imageDescription.removeAttribute('readonly');
+            reader.onload = function(){
+                var output = document.getElementById('imagePreview');
+                output.src = reader.result;
+                output.style.display = 'block';
             };
-            reader.readAsDataURL(input.files[0]);
+            reader.readAsDataURL(event.target.files[0]);
+            document.getElementById('image_description').removeAttribute('readonly');
         }
 
-        function previewExistingImage(event, postId) {
-            var input = event.target;
+        function previewExistingImage(event, id) {
             var reader = new FileReader();
-            reader.onload = function() {
-                var dataURL = reader.result;
-                var imagePreview = document.getElementById('imagePreview_' + postId);
-                var imageDescription = document.getElementById('image_description_' + postId);
-                imagePreview.src = dataURL;
-                imagePreview.style.display = 'block';
-                imageDescription.removeAttribute('readonly');
+            reader.onload = function(){
+                var output = document.getElementById('imagePreview_' + id);
+                if (output) {
+                    output.src = reader.result;
+                } else {
+                    var container = document.getElementById('imagePreviewContainer_' + id);
+                    var img = document.createElement('img');
+                    img.id = 'imagePreview_' + id;
+                    img.className = 'standard-image';
+                    img.src = reader.result;
+                    container.appendChild(img);
+                }
             };
-            reader.readAsDataURL(input.files[0]);
+            reader.readAsDataURL(event.target.files[0]);
+            document.getElementById('image_description_' + id).removeAttribute('readonly');
         }
 
-        function validateForm() {
-            var imageInput = document.getElementById('image');
-            var imageDescription = document.getElementById('image_description').value;
+        function validateForm(event) {
+            var form = event.target;
+            var isDeleteAction = form.querySelector('button[name="delete"]:focus');
 
-            if (imageInput.files.length > 0 && imageDescription.trim() === '') {
-                alert('A descrição da imagem é obrigatória quando uma imagem é selecionada.');
-                return false;
+            if (!isDeleteAction) {
+                var title = form.querySelector('input[name="title"]').value.trim();
+                var content = form.querySelector('textarea[name="content"]').value.trim();
+
+                if (title === "" || content === "") {
+                    alert("Título e conteúdo são obrigatórios.");
+                    return false;
+                }
             }
             return true;
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var forms = document.querySelectorAll('form');
+            forms.forEach(function(form) {
+                form.addEventListener('submit', validateForm);
+            });
+        });
     </script>
 </body>
 </html>

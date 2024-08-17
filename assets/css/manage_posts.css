@@ -37,7 +37,7 @@ form {
 }
 
 .post {
-    flex: 1 1 calc(33.333% - 20px); /* Largura de aproximadamente 1/3 do container */
+    flex: 1 1 calc(33.333% - 20px);
     margin: 10px;
     box-sizing: border-box;
     background-color: #f9f9f9;
@@ -88,9 +88,9 @@ button:hover {
     margin-top: 10px;
 }
 
-#imagePreview, .imagePreview {
+#imagePreview, .imagePreview, .standard-image {
     width: 100%;
-    max-width: 300px; /* Tamanho máximo da imagem */
+    max-width: 300px;
     height: auto;
     object-fit: cover;
     display: block;
@@ -110,12 +110,12 @@ input[name="created_at"] {
 
 @media (max-width: 768px) {
     .post {
-        flex: 1 1 calc(50% - 20px); /* Ajuste para telas menores */
+        flex: 1 1 calc(50% - 20px);
     }
 }
 
 @media (max-width: 480px) {
     .post {
-        flex: 1 1 100%; /* Ajuste para telas muito pequenas */
+        flex: 1 1 100%;
     }
 }

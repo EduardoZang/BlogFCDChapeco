@@ -19,18 +19,20 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <main>
         <h1>Últimas Notícias</h1>
-        <?php foreach ($posts as $post): ?>
-            <article>
-                <h2><?php echo htmlspecialchars($post['title']); ?></h2>
-                <p><?php echo nl2br(htmlspecialchars($post['content'])); ?></p>
-                <?php if ($post['image']): ?>
-                    <figure>
-                        <img src="uploads/<?php echo htmlspecialchars($post['image']); ?>" alt="<?php echo htmlspecialchars($post['image_description']); ?>">
-                    </figure>
-                <?php endif; ?>
-                <hr>
-            </article>
-        <?php endforeach; ?>
+        <div class="posts">
+            <?php foreach ($posts as $post): ?>
+                <article>
+                    <h2><?php echo htmlspecialchars($post['title']); ?></h2>
+                    <p><?php echo nl2br(htmlspecialchars($post['content'])); ?></p>
+                    <?php if ($post['image']): ?>
+                        <figure>
+                            <img src="uploads/<?php echo htmlspecialchars($post['image']); ?>" alt="<?php echo htmlspecialchars($post['image_description']); ?>">
+                        </figure>
+                    <?php endif; ?>
+                    <hr>
+                </article>
+            <?php endforeach; ?>
+        </div>
     </main>
 
     <?php include 'templates/footer.php'; ?>
