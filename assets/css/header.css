@@ -45,16 +45,59 @@ header {
     object-fit: cover;
 }
 
-.social-icons {
-    display: flex;
-    align-items: center;
-}
-
-.social-icons a {
-    margin: 0 10px;
-}
-
 .nav-item {
     display: flex;
     align-items: center;
+}
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 767px) {
+    .navbar-nav {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 10px;
+    }
+
+    .nav-item {
+        margin: 10px 0;
+    }
+
+    .social-icons {
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .logo {
+        width: 50px;
+        height: auto;
+    }
+
+    .profile-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .navbar-toggler {
+        border: none;
+        outline: none;
+    }
+
+    .navbar-toggler-icon {
+        background-image: url('data:image/svg+xml,...');
+    }
+}
+
+/* Estilos para tablets e dispositivos com telas maiores */
+@media (min-width: 768px) and (max-width: 991px) {
+    .navbar-nav {
+        flex-direction: row;
+    }
+
+    .nav-item {
+        margin: 0 10px;
+    }
+
+    .social-icons {
+        margin-top: 0;
+    }
 }

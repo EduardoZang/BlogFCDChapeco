@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog de Notícias</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -13,6 +14,9 @@
         <div class="d-flex justify-content-between align-items-center">
             <img src="assets/images/logoFCD.jpeg" alt="Logo" class="logo">
             <nav class="navbar navbar-expand-md navbar-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -51,15 +55,13 @@
                 <a href="https://www.facebook.com/people/Fraternidade-Crist%C3%A3-Chapec%C3%B3/pfbid0FxsA1FFLxSthCEztgC9fdwRpYDfLBKhboEqDBEBd1Hnf1SPMU3jLT376CYzri1ETl/" target="_blank"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://www.instagram.com/fcdchapeco/?igsh=MWNrbXhzbmMweTI1bQ%3D%3D" target="_blank"><i class="fab fa-instagram"></i></a>
                 <?php if (isset($_SESSION['user_id'])): ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="manage_account.php">
-                            <?php if (isset($_SESSION['profile_image']) && $_SESSION['profile_image'] !== 'perfilPadrao.png'): ?>
-                                <img src="uploads/<?php echo htmlspecialchars($_SESSION['profile_image']); ?>" alt="Foto de Perfil" class="profile-icon">
-                            <?php else: ?>
-                                <img src="uploads/perfilPadrao.png" alt="Foto de Perfil Padrão" class="profile-icon">
-                            <?php endif; ?>
-                        </a>
-                    </li>
+                    <a class="nav-link" href="manage_account.php">
+                        <?php if (isset($_SESSION['profile_image']) && $_SESSION['profile_image'] !== 'perfilPadrao.png'): ?>
+                            <img src="uploads/<?php echo htmlspecialchars($_SESSION['profile_image']); ?>" alt="Foto de Perfil" class="profile-icon">
+                        <?php else: ?>
+                            <img src="uploads/perfilPadrao.png" alt="Foto de Perfil Padrão" class="profile-icon">
+                        <?php endif; ?>
+                    </a>
                 <?php else: ?>
                     <a href="login.php"><i class="fas fa-user"></i></a>
                 <?php endif; ?>
@@ -67,7 +69,7 @@
         </div>
     </div>
 </header>
-<!-- Rest of the page content -->
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

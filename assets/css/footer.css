@@ -20,6 +20,12 @@ footer {
     padding: 9px;
 }
 
+@media (max-width: 767px) {
+    .footer-main {
+        display: none;
+    }
+}
+
 .footer-logo-main {
     width: 43px;
     height: 41px;
@@ -53,12 +59,23 @@ footer {
     height: 19px;
 }
 
-.footer_subtitle{
-    align-items: center;
-    justify-content: center;
-    justify-items: center;
-}
+/* Responsividade */
+@media (max-width: 767px) {
+    .footer-main{
+        flex-wrap: wrap;
+    }
+    .footer-secondary {
+        flex-direction: column;
+        padding: 10px 10px;
+    }
 
-.footer_description{
-    font-size: 12px;
+    .footer-logo-secondary {
+        width: 20px;
+        height: 25px;
+    }
+
+    .footer-secondary p{
+        text-align: center;
+        margin-top: 5px;
+    }
 }
