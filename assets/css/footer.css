@@ -38,15 +38,27 @@ footer {
     justify-content: space-between;
     align-items: center;
     background-color: #EFF168;
-    padding: 5px 10px;
+    padding: 5px 20px;
+    width: auto;
 }
 
 .footer-secondary p {
     color: black;
     font-size: 1em;
+    margin: 0;
 }
 
 .footer-logo-secondary {
     width: 15px;
     height: 19px;
+}
+
+.footer_subtitle{
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.footer_description{
+    font-size: 12px;
 }
