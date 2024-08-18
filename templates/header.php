@@ -11,7 +11,7 @@
 <header>
     <div class="container">
         <div class="d-flex justify-content-between align-items-center">
-            <img src="assets/images/logoFCD.png" alt="Logo" class="logo">
+            <img src="assets/images/logoFCD.jpeg" alt="Logo" class="logo">
             <nav class="navbar navbar-expand-md navbar-light">
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
@@ -49,7 +49,7 @@
             </nav>
             <div class="social-icons">
                 <a href="https://www.facebook.com/people/Fraternidade-Crist%C3%A3-Chapec%C3%B3/pfbid0FxsA1FFLxSthCEztgC9fdwRpYDfLBKhboEqDBEBd1Hnf1SPMU3jLT376CYzri1ETl/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/explore/locations/841625812615423/fraternidade-crista-de-doentes-e-deficientes-de-chapeco-scfc/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/fcdchapeco/?igsh=MWNrbXhzbmMweTI1bQ%3D%3D" target="_blank"><i class="fab fa-instagram"></i></a>
                 <?php if (isset($_SESSION['user_id'])): ?>
                     <li class="nav-item">
                         <a class="nav-link" href="manage_account.php">

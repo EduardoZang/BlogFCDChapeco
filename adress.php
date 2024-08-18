@@ -21,8 +21,11 @@ session_start();
                 <a href="https://www.google.com/maps/dir/?api=1&destination=Fcd, R. São Leopoldo, 449 - Esplanada, Chapecó - SC, 89812-530" target="_blank" class="btn">
                     <i class="fas fa-map-marked-alt"></i> Como Chegar
                 </a>
-                <a href="tel:+550012345678" class="btn">
-                    <i class="fas fa-phone-alt"></i> (00) 1234-5678
+                <a href="tel:+554933313481" class="btn">
+                    <i class="fas fa-phone-alt"></i> (49) 3331-3481
+                </a>
+                <a href="mailto:fcdchapeco@gmail.com" class="btn">
+                    <i class="fas fa-envelope"></i> fcdchapeco@gmail.com
                 </a>
             </div>
             <div id="map"></div>

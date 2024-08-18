@@ -6,7 +6,7 @@
         <img src="assets/images/logoFCD.jpeg" alt="Logo" class="footer-logo-main">
         <div class="footer-section">
             <h5 class="footer_subtitle">Contatos</h5>
-            <span class="footer_description"> Telefone: (49) 3331 34-81</span>
+            <span class="footer_description"> Telefone: (49) 3331-3481</span>
             <br>
             <span class="footer_description"> E-mail: fcdchapeco@gmail.com</span>
         </div>
