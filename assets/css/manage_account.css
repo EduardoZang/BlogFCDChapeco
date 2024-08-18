@@ -76,10 +76,6 @@ p {
     background-color: #f0f0f0;
 }
 
-.profile-image input[type="file"] {
-    display: none;
-}
-
 form {
     flex: 1;
     display: flex;
