@@ -14,7 +14,7 @@ footer {
 }
 
 .footer-main {
-    display: flex;
+    display: none;
     align-items: center;
     background-color: #2D529E;
     padding: 9px;
@@ -43,13 +43,13 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #EFF168;
+    background-color: #2D529E;
     padding: 5px 20px;
     width: auto;
 }
 
 .footer-secondary p {
-    color: black;
+    color: #EFF168;
     font-size: 1em;
     margin: 0;
 }

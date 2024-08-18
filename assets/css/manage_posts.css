@@ -21,7 +21,7 @@ form {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    width: 90%;
     max-width: 400px;
     margin: 10px auto;
     display: flex;
@@ -34,6 +34,8 @@ form {
     flex-wrap: wrap;
     justify-content: space-around;
     margin: 20px auto;
+    width: 90%;
+    max-width: 1200px;
 }
 
 .post {
@@ -61,6 +63,16 @@ input[type="text"], input[type="file"], textarea {
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 100%;
+    box-sizing: border-box;
+}
+
+input[name="created_at"] {
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
 }
 
 button {
@@ -98,24 +110,48 @@ button:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-input[name="created_at"] {
-    width: 100%;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    text-align: center;
-}
-
+/* Responsive Styles */
 @media (max-width: 768px) {
     .post {
         flex: 1 1 calc(50% - 20px);
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    h1, h2 {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 8px 16px;
     }
 }
 
 @media (max-width: 480px) {
     .post {
         flex: 1 1 100%;
+    }
+
+    form {
+        padding: 10px;
+    }
+
+    h1, h2 {
+        font-size: 18px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+
+    input[type="text"], 
+    input[type="file"], 
+    textarea {
+        font-size: 14px;
+        padding: 8px;
     }
 }

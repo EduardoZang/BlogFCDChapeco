@@ -29,7 +29,8 @@ session_start();
             </aside>
 
             <main class="text-container">
-                <h1 id="apresentacao">Seja bem-vindo à FCD:</h1>
+                <h1 id="apresentacao">Seja bem-vindo à FCD!</h1>
+                <h6>FCD Sendo instrumento de alteridade e elo entre políticas públicas inclusivas</h6>
                 <h3 id="apresentacao">Apresentação:</h3>
                 <p>
                     A Fraternidade Cristã de Pessoas com Deficiência – FCD CHAPECÓ/SC, 
@@ -130,11 +131,13 @@ session_start();
             </main>
             <aside class="image-container">
                 <img src="assets/images/logoFCD.jpeg" alt="Logo da FCD">
+                <img src="assets/images/img_fcd_7.jpeg" alt="Ginásio Externo">
+                <img src="assets/images/img_fcd_5.jpeg" alt="Nosso espaço">
+                <img src="assets/images/img_fcd_8.png" alt="Atividade no laboratório de informática">
                 <img src="assets/images/img_fcd_3.jpeg" alt="Nossos alunos">
                 <img src="assets/images/img_fcd_2.jpeg" alt="Gincana">
                 <img src="assets/images/img_fcd_1.jpeg" alt="Nossos alunos">
                 <img src="assets/images/img_fcd_4.jpeg" alt="Nossos alunos">
-                <img src="assets/images/img_fcd_5.jpeg" alt="Nosso espaço">
             </aside>
         </div>
     </div>

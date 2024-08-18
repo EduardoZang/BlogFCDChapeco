@@ -95,3 +95,30 @@ input[type="submit"]:hover {
     transform: translateY(0);
     opacity: 1;
 }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .form-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .modal-dialog {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .modal-title {
+        font-size: 1.25rem;
+    }
+
+    input[type="submit"] {
+        font-size: 14px;
+    }
+}

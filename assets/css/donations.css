@@ -24,9 +24,10 @@ body {
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    width: 90%;
     max-width: 350px;
     text-align: center;
+    margin: 0 auto;
 }
 
 h1 {
@@ -49,10 +50,50 @@ p {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
 .qrcode-container img {
     width: 150px;
     height: auto;
     border-radius: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .donation-container {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .qrcode-container img {
+        width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .donation-container {
+        padding: 15px;
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .qrcode-container img {
+        width: 250px;
+    }
 }
