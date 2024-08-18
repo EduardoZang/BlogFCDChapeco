@@ -63,7 +63,8 @@ p {
 }
 
 .btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     background-color: #fff;
     color: #000;
     padding: 10px 20px;
@@ -73,10 +74,18 @@ p {
     font-size: 18px;
     margin: 0 10px;
     transition: background-color 0.3s, color 0.3s;
+    line-height: 0;
+    text-align: center;
 }
 
 .btn i {
-    margin-right: 8px;
+    margin: 0;
+    font-size: 24px;
+}
+
+.btn .text {
+    display: inline;
+    margin-left: 10px;
 }
 
 .btn:hover {
@@ -87,4 +96,61 @@ p {
     display: flex;
     justify-content: center;
     gap: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .about-container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .btn {
+        font-size: 24px;
+        padding: 10px;
+        width: 50px;
+        height: 50px;
+        justify-content: center;
+    }
+
+    .btn .text {
+        display: none;
+    }
+
+    #map {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .btn {
+        font-size: 20px;
+        padding: 8px;
+        width: 40px;
+        height: 40px;
+    }
+
+    #map {
+        height: 250px;
+    }
+
+    .button-container {
+        flex-direction: row;
+        gap: 5px;
+    }
 }

@@ -19,13 +19,13 @@ session_start();
             <h1>Como chegar</h1>
             <div class="button-container">
                 <a href="https://www.google.com/maps/dir/?api=1&destination=Fcd, R. São Leopoldo, 449 - Esplanada, Chapecó - SC, 89812-530" target="_blank" class="btn">
-                    <i class="fas fa-map-marked-alt"></i> Como Chegar
+                    <i class="fas fa-map-marked-alt"></i> <div class="text">Como Chegar</div>
                 </a>
                 <a href="tel:+554933313481" class="btn">
-                    <i class="fas fa-phone-alt"></i> (49) 3331-3481
+                    <i class="fas fa-phone-alt"></i> <div class="text">(49) 3331-3481</div>
                 </a>
                 <a href="mailto:fcdchapeco@gmail.com" class="btn">
-                    <i class="fas fa-envelope"></i> fcdchapeco@gmail.com
+                    <i class="fas fa-envelope"></i> <div class="text">fcdchapeco@gmail.com</div>
                 </a>
             </div>
             <div id="map"></div>
