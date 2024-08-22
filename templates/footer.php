@@ -21,7 +21,8 @@
         </div>
     </div>
     <div class="footer-secondary">
-        <p>Copyright FCD – Fraternidade Cristã de Pessoas Com Deficiência ©. - Parceria com Instituto Federal de Santa Catarina - IFSC</p>
-        <img src="assets/images/logoIFSC.png" alt="Logo" class="footer-logo-secondary">
+        <p> &copy FCD – Fraternidade Cristã de Pessoas Com Deficiência - Parceria com Instituto Federal de Santa Catarina - IFSC e HandTalk&#174</p>
+        <img src="assets/images/logo-handtalk.png" alt="Logo HandTalk" class="footer-logo-HandTalk-secondary">
+        <img src="assets/images/logoIFSC.png" alt="Logo IFSC" class="footer-logo-secondary">
     </div>
 </footer>

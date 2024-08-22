@@ -59,6 +59,12 @@ footer {
     height: 19px;
 }
 
+.footer-logo-HandTalk-secondary {
+    width: auto;
+    height: 30px;
+}
+
+
 /* Responsividade */
 @media (max-width: 767px) {
     .footer-main{

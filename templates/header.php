@@ -51,6 +51,7 @@
                     </ul>
                 </div>
             </nav>
+            <img src="assets/images/SeloAmareloHugo.png" alt="Selo amarelo Amigo do Surdo - HandTalk" class="logoSelo">
             <div class="social-icons">
                 <a href="https://www.facebook.com/people/Fraternidade-Crist%C3%A3-Chapec%C3%B3/pfbid0FxsA1FFLxSthCEztgC9fdwRpYDfLBKhboEqDBEBd1Hnf1SPMU3jLT376CYzri1ETl/" target="_blank"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://www.instagram.com/fcdchapeco/?igsh=MWNrbXhzbmMweTI1bQ%3D%3D" target="_blank"><i class="fab fa-instagram"></i></a>
