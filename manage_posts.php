@@ -65,8 +65,9 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Gerenciar Publicações</title>
+    <title>FCD - Gerenciar Publicações</title>
     <link rel="stylesheet" href="assets/css/manage_posts.css">
+    <link rel="icon" href="assets/images/logoFCD.jpeg" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <body>

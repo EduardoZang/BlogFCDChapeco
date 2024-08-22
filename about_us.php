@@ -6,7 +6,8 @@ session_start();
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Quem somos</title>
+    <title>FCD - Quem somos</title>
+    <link rel="icon" href="assets/images/logoFCD.jpeg" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/about_us.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">

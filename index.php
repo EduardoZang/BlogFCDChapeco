@@ -11,7 +11,8 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Blog de Notícias</title>
+    <title>FCD - Página Inicial</title>
+    <link rel="icon" href="assets/images/logoFCD.jpeg" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/index.css">
 </head>
 <body>

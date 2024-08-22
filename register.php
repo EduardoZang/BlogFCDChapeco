@@ -44,8 +44,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro</title>
+    <title>FCD - Cadastro</title>
     <link rel="stylesheet" href="assets/css/register.css">
+    <link rel="icon" href="assets/images/logoFCD.jpeg" type="image/x-icon">
 </head>
 <body>
     <?php include 'templates/header.php'; ?>
